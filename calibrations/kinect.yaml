@@ -1,0 +1,24 @@
+camera_frame_id: 'kinect2_rgb_optical_frame'
+
+framerate: 30
+
+image_width: 960
+image_height: 540
+camera_name: kinect
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [526.5180359097455, 0.0, 471.78183594502843, 0.0, 526.4041276657867, 274.37745884571024, 0.0, 0.0, 1.0]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [0.04947729200738078, -0.06800145905891022, 0.0006722335999124419, -0.003866117311020234, 0.02188874226083775]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [526.5180359097455, 0.0, 471.78183594502843, 0.0, 0.0, 526.4041276657867, 274.37745884571024, 0.0, 0.0, 0.0, 1.0, 0.0]

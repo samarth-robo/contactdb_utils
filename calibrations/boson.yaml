@@ -1,0 +1,27 @@
+camera_frame_id: 'boson_frame'
+
+framerate: 30
+
+image_width: 640
+image_height: 512
+camera_name: boson
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [721.45318774, 0., 308.42799284, 0., 725.18784088, 238.40001556, 0., 0., 1.]
+distortion_model: rational_polynomial
+distortion_coefficients:
+  rows: 1
+  cols: 14
+  data: [-1.89598350e+01, 2.82406930e+02, 1.45234980e-03, 8.17079385e-04,
+  1.43421036e+02, -1.86130636e+01, 2.74790695e+02, 2.42438653e+02,
+  0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+  0.00000000e+00, 0.00000000e+00]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [721.45318774, 0., 308.42799284, 0, 0., 725.18784088, 238.40001556, 0, 0., 0., 1, 0.]

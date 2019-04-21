@@ -1,0 +1,20 @@
+<launch>
+      <arg name="invert" default="false"/>
+      <arg name="thresh" default="false"/>
+      <arg name="agc_border" default="0.1"/>
+      <arg name="cold_temp" default="-1"/>
+      <arg name="old" default="false"/>
+      <arg name="const_norm" default="false"/>
+
+      <node name="thermal_proc" pkg="deepgrasp_utils" type="thermal_camera_proc"
+            output="screen" required="true" unless="$(arg old)" args="
+            agc_border $(arg agc_border)
+            cold_temp $(arg cold_temp)
+            const_norm $(arg const_norm)">
+            <remap from="image_in" to="image_raw_raw"/>
+            <remap from="image_out" to="image_raw"/>
+      </node>
+
+      <node name="thermal_image_proc" pkg="image_proc" type="image_proc"
+            output="screen" required="true"/>
+</launch>

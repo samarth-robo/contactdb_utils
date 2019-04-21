@@ -1,0 +1,40 @@
+<launch>
+  <arg name="print" default="false"/>
+  <arg name="rviz" default="true"/>
+  <arg name="image_view" default="false"/>
+  <arg name="kinect_res" default="qhd"/>
+  <arg name="kinect" default="true"/>
+  <arg name="thermal" default="true"/>
+  <arg name="thermal_const_norm" default="true"/>
+
+  <!-- Launch the cameras -->
+  <include file="$(find deepgrasp_utils)/launch/deepgrasp_cameras.launch">
+    <arg name="view" value="$(arg image_view)"/>
+    <arg name="kinect_res" value="$(arg kinect_res)"/>
+    <arg name="kinect" value="$(arg kinect)"/>
+    <arg name="thermal" value="$(arg thermal)"/>
+  </include>
+
+  <!-- AR tag detector -->
+  <include file="$(find ar_track_alvar)/launch/pr2_indiv_no_kinect.launch"
+           ns="deepgrasp">
+    <arg name="marker_size" value="11.73"/>
+    <!--arg name="max_new_marker_error" value="0.08"/-->
+    <!--arg name="max_track_error" value="0.1"/-->
+    <arg name="cam_image_topic" value="kinect2/qhd/image_color_rect"/>
+    <arg name="cam_info_topic" value="kinect2/qhd/camera_info"/>
+    <arg name="output_frame" value="kinect2_rgb_optical_frame"/>
+  </include>
+
+  <!-- Static TFs -->
+  <include file="$(find deepgrasp_utils)/launch/static_tfs.launch"/>
+
+  <!-- print TF -->
+  <node name="tf_print" pkg="tf" type="tf_echo" if="$(arg print)"
+        args="ar_marker_0 ar_marker_8"
+        output="screen"/>
+
+  <node name="rviz" pkg="rviz" type="rviz" if="$(arg rviz)"
+        args="-d $(find deepgrasp_utils)/rviz_files/ar.rviz" output="screen"
+        required="true"/>
+</launch>

@@ -1,0 +1,19 @@
+<launch>
+  <arg name="view" default="true"/>
+  <arg name="kinect_res" default="qhd"/>
+
+  <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch">
+    <arg name="output" value="log"/>
+    <arg name="publish_tf" value="true"/>
+    <arg name="max_depth" value="1.50"/>
+    <arg name="calib_path" value="$(find deepgrasp_utils)/calibrations"/>
+  </include>
+
+  <group if="$(arg view)">
+    <node name="kinect_viewer" pkg="image_view" type="image_view"
+          ns="kinect2/$(arg kinect_res)" output="screen">
+      <remap from="image" to="image_color_rect"/>
+    </node>
+  </group>
+
+</launch>

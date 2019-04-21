@@ -1,0 +1,62 @@
+<launch>
+  <arg name="grab" default="false"/>
+  <arg name="object" default="test"/>
+  <arg name="kinect_res" default="qhd"/>
+
+  <!-- Launch the cameras -->
+  <include file="$(find deepgrasp_utils)/launch/deepgrasp_cameras.launch">
+    <arg name="view" value="false"/>
+    <arg name="kinect_res" value="$(arg kinect_res)"/>
+  </include>
+  
+  <group ns="deepgrasp">
+
+    <!-- Static TFs -->
+    <include file="$(find deepgrasp_utils)/launch/static_tfs.launch"/>
+
+    <!-- register depth image to thermal image -->
+    <node name="pointcloud_manager" pkg="nodelet" type="nodelet" args="manager"
+          output="screen"/>
+    <node name="register" pkg="nodelet" type="nodelet"
+          args="load depth_image_proc/register pointcloud_manager"
+          output="screen">
+      <!-- inputs -->
+      <remap from="rgb/camera_info" to="boson/camera_info"/>
+      <remap from="depth/camera_info"
+             to="kinect2/$(arg kinect_res)/camera_info"/>
+      <remap from="depth/image_rect"
+             to="kinect2/$(arg kinect_res)/image_depth_rect"/>
+      <!-- outputs -->
+      <remap from="depth_registered/camera_info"
+             to="kinect2/$(arg kinect_res)/depth_registered/camera_info"/>
+      <remap from="depth_registered/image_rect"
+             to="kinect2/$(arg kinect_res)/depth_registered/image_rect"/>
+    </node>
+
+    <!-- make point cloud -->
+    <node name="pcloud" pkg="nodelet" type="nodelet"
+          args="load depth_image_proc/point_cloud_xyzi pointcloud_manager"
+          output="screen">
+      <!-- inputs -->
+      <remap from="intensity/camera_info" to="boson/camera_info"/>
+      <remap from="intensity/image_rect" to="boson/image_rect"/>
+      <remap from="depth/image_rect"
+             to="kinect2/$(arg kinect_res)/depth_registered/image_rect"/>
+      <!-- outputs -->
+      <remap from="depth/points" to="kinect2/$(arg kinect_res)/points_thermal"/>
+    </node>
+
+    <group if="$(arg grab)">
+      <node name="pcd_grabber" pkg="deepgrasp_utils" type="pcd_grabber"
+            args="$(env HOME) $(arg object)"
+            output="screen" required="true">
+        <!-- inputs -->
+        <remap from="points" to="kinect2/$(arg kinect_res)/points_thermal"/>
+        <remap from="image" to="boson/image_rect"/>
+      </node>
+    </group>
+  </group>
+
+  <node name="rviz" pkg="rviz" type="rviz" output="screen" required="true"
+        args="-d $(find deepgrasp_utils)/rviz_files/thermal_cloud.rviz"/>
+</launch>

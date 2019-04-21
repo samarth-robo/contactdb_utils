@@ -1,0 +1,28 @@
+<launch>
+  <arg name="kinect_res" default="qhd"/>
+  <arg name="data_dir" default="$(env HOME)/Pictures/deepgrasp_calib"/>
+
+  <include file="$(find deepgrasp_utils)/launch/deepgrasp_cameras.launch">
+    <arg name="view" value="true"/>
+    <arg name="kinect_res" value="$(arg kinect_res)"/>
+  </include>
+
+  <!-- Kinect saver -->
+  <node name="kinect_image_saver" pkg="image_view" type="image_saver"
+        output="screen" ns="deepgrasp">
+    <remap from="image" to="kinect2/$(arg kinect_res)/image_color"/>
+    <param name="save_all_image" value="false"/>
+    <param name="filename_format" value="$(arg data_dir)/%05d_kinect.jpg"/>
+  </node>
+
+  <!-- Thermal camera saver -->
+  <node name="thermal_image_saver" pkg="image_view" type="image_saver"
+        output="screen" ns="deepgrasp">
+    <remap from="image" to="boson/image_raw"/>
+    <param name="save_all_image" value="false"/>
+    <param name="filename_format" value="$(arg data_dir)/%05d_thermal.jpg"/>
+  </node>
+
+  <node name="service_caller" pkg="deepgrasp_utils"
+        type="image_save_service_caller.py" output="screen" ns="deepgrasp"/>
+</launch>

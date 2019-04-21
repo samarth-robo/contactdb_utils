@@ -1,0 +1,14 @@
+<launch>
+    <!-- cameras, see scripts/tf_publisher.py -->
+    <node pkg="tf" type="static_transform_publisher" name="camera_static_tfs"
+          args="
+          -0.00119856 -0.04914189 -0.00059866
+          0.01897389 -0.00560787 -0.00099982 0.99980375
+          kinect2_rgb_optical_frame boson_frame
+          50" required="true"/>
+
+    <!-- turntable, see calibrations/turntable.txt -->
+    <node pkg="tf" type="static_transform_publisher" name="turntable_static_tfs"
+          args="0.226 0.035 0.087 -0.010 -0.001 -0.097
+          ar_marker_0 turntable_base_tmp 33" required="true"/>
+</launch>
