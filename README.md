@@ -28,6 +28,11 @@ catkin_make
 - [Raw ROS bagfiles (1.46 TB)](https://www.dropbox.com/sh/hn90i9qglddnfpb/AABfB3pd34nkEF7_usktvVLMa?dl=0): Compressed 30 Hz RGB-D-Thermal data streams. See [this file](docs/rosbags.md) for documentation on how to process them.
 
 ## Visualizing Contact Maps
+```
+cd contactdb_utils/scripts
+python show_contactmap.py --object_name <object name> --session <participant number 1-50> --instruction <use | handoff>
+```
+<img src="contactmap_example.gif" style="display: block;margin-left: auto;,margin-right: auto;width: 40%"></img>
 
 ## Citation
 ```
