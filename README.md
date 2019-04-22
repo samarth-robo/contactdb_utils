@@ -7,8 +7,22 @@ This repository contains code to create the human grasp contact maps, presented 
 
 Please see [contactdb_prediction](https://github.com/samarth-robo/contactdb_prediction) for code to perform the contactmap prediction experiments presented in the paper.
 
+This code is **in the process of being documented**. Feel free to open an issue if you need urgent help.
+
+## Dataset Download:
+We offer both processed and raw forms of the data.
+### Processed Data
+[Contact Maps (Textured Meshes) (11.5 GB)](https://www.dropbox.com/sh/gzwk21ssod63xdl/AAAJ5StPMS2eid2MnZddBGsca?dl=0). If you also need the RGBD-Thermal images, 6-DOF object poses, and image masks, use [this Dropbox link (91 GB)](https://www.dropbox.com/sh/yjp1s73ollrfafi/AAATWS-1l-MzUcNtahR36fB-a?dl=0) instead.
+### Raw Data
+[ROS bagfiles (1.46 TB)](https://www.dropbox.com/sh/hn90i9qglddnfpb/AABfB3pd34nkEF7_usktvVLMa?dl=0): Compressed 30 Hz RGB-D-Thermal data streams. You will also need the [Object 3D Models (180 MB)](https://www.dropbox.com/sh/jdndpjhmq9pabgi/AADRBXURc97_tPsQKCy1Zj60a?dl=0) to create contact maps from this raw data.
+
 ## Setup
-Our code has been tested on Ubuntu 16.04 LTS with ROS Kinetic Kame.
+### Using Processed Data
+1. Install [Open3D](http://www.open3d.org/docs/getting_started.html), `numpy`, and `matplotlib`.
+2. Download this repository: `git clone https://github.com/samarth-robo/contactdb_utils`.
+3. If you want to perform machine learning experiments, check out the [contactdb_prediction](https://github.com/samarth-robo/contactdb_prediction) repository.
+### Using Raw Data
+Our code is a ROS package that has been tested on Ubuntu 16.04 LTS with ROS Kinetic Kame.
 1. Download [this fork](https://github.com/samarth-robo/Open3D/tree/surface_normals_for_colormapping) of Open3D. Make sure to get the `surface_normals_for_colormapping` branch. Compile it from source ([instructions](http://www.open3d.org/docs/compilation.html)).
 2. Install [ROS Kinetic Kame](http://wiki.ros.org/kinetic/Installation) (the `ros-kinetic-desktop-full` version).
 3. Install some dependencies: `sudo apt-get install `
@@ -20,12 +34,6 @@ git clone https://github.com/samarth-robo/contactdb_utils
 cd ..
 catkin_make
 ```
-
-## Dataset Download links:
-- [Contact Maps (Textured Meshes) (11.5 GB)](https://www.dropbox.com/sh/gzwk21ssod63xdl/AAAJ5StPMS2eid2MnZddBGsca?dl=0)
-- [Data (91 GB)](https://www.dropbox.com/sh/yjp1s73ollrfafi/AAATWS-1l-MzUcNtahR36fB-a?dl=0): RGB-D-Thermal images, object 6-DOF poses and image masks, contact maps.
-- [3D Models (180 MB)](https://www.dropbox.com/sh/jdndpjhmq9pabgi/AADRBXURc97_tPsQKCy1Zj60a?dl=0)
-- [Raw ROS bagfiles (1.46 TB)](https://www.dropbox.com/sh/hn90i9qglddnfpb/AABfB3pd34nkEF7_usktvVLMa?dl=0): Compressed 30 Hz RGB-D-Thermal data streams. See [this file](docs/rosbags.md) for documentation on how to process them.
 
 ## Visualizing Contact Maps
 ```
