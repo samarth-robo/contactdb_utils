@@ -223,7 +223,7 @@ class PoseGenerator(object):
       T_c_o = np.dot(t.inverse_matrix(self.T_k_b), T_c_o)
       T_o_c = t.inverse_matrix(T_c_o)
 
-      # pose of Boson w.r.t object, for naive texture mapping
+      # pose of Boson w.r.t object, for Open3D texture mapping
       filename = osp.join(base_dir, 'poses', 'camera_pose_{:s}.txt'.format(count))
       with open(filename, 'w') as f:
         f.write('# translations\n')
@@ -240,7 +240,8 @@ class PoseGenerator(object):
         f.write('{:d}\n'.format(int(width)))
         f.write('{:d}\n'.format(int(height)))
 
-      # pose of object w.r.t. Boson, for seamless texture mapping
+      # pose of object w.r.t. Boson, for seamless texture mapping using 
+      # https://github.com/nmoehrle/mvs-texturing (deprecated)
       filename = osp.join(base_dir, 'thermal_images', '{:s}.cam'.format(count))
       with open(filename, 'w') as f:
         f.write('{:7.6f} {:7.6f} {:7.6f} '.

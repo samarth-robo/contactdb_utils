@@ -34,8 +34,7 @@ git clone https://github.com/samarth-robo/contactdb_utils
 cd ..
 catkin_make
 ```
-4. Download the data and 3D models as mentioned in [Using Raw Data](#raw-data), and make symlinks:
-`ln -s DATA-DOWNLOAD-DIR data/contactdb_data`, `ln -s 3D-MODEL-DOWNLOAD-DIR data/contactdb_3d_models`.
+4. Download the data as mentioned in [Using Raw Data](#raw-data), and make the symlink: `ln -s DOWNLOAD-DIR data/contactdb_data`.
 
 ## Visualizing Contact Maps
 This script applies our post-processing to the contact map, and shows it in interactive 3D. You need to either download the processed data, or process the raw data before running it.
@@ -47,7 +46,7 @@ python show_contactmap.py --object_name <object name> --session <participant num
 
 ## Documents:
 - [Recording your own data](docs/recording_steps.md)
-- [Cleaning up 3D models of objects](docs/3d_model_cleaning.md)
+- [Cleaning up 3D models of objects](docs/3d_model_processing.md)
 - [Proessing the recorded data](docs/processing_steps.md)
 - [Various files produced during data processing](docs/data_files.md)
 
@@ -61,3 +60,20 @@ python show_contactmap.py --object_name <object name> --session <participant num
   note={\url{https://contactdb.cc.gatech.edu}}
 }
 ```
+
+# Remeshing
+Use this for meshes that have very large faces.
+
+## [Using Meshlab](https://compvis.quora.com/Processing-meshes-Part-1)
+
+1. Poisson Disk sampling: 50k
+
+2. Compute normals: 15 neighbors
+
+3. Poisson Surface Reconstruction: octree = 10, # points per node = 5
+
+4. Orient all faces coherently
+
+5. (Optional) invert face orientation
+
+## [Using Blender](https://compvis.quora.com/Processing-meshes-Part-2)
