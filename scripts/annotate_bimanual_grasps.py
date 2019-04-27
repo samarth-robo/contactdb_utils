@@ -1,3 +1,12 @@
+'''
+Shows thermal images for each session
+Useful for annotating the single-handed / bimanual nature of grasps
+This script needs the images to be arranged in the pix2pix format
+You can do that for ContactDB by running the scripts
+datasets/copy_combine_rgb_thermal.py and then datasets/crop_images.py
+from https://github.com/cusuh/pix2pix-cycleGAN
+'''
+
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -18,7 +27,7 @@ use = ['banana', 'binoculars', 'bowl', 'camera', 'eyeglasses', 'flute', 'headpho
        'mug', 'ps_controller', 'utah_teapot', 'water_bottle']
 
 # !!! change both `base_path` and `task` to handoff or use !!!
-base_path = '/home/samarth/deepgrasp_data/cropped_no_depth_handoff/'
+base_path = '../data/contactdb_data/cropped_no_depth_handoff/'
 task = handoff # specify handoff/use
 task_str = 'handoff'
 
@@ -29,7 +38,7 @@ try:
     f.close()
 except:
     last_session = None
-last_session = 'piggy_bank_full7_handoff'
+# last_session = 'piggy_bank_full7_handoff'
 
 outf = open('{:s}_bimanual_grasps.txt'.format(task_str), 'a')
 

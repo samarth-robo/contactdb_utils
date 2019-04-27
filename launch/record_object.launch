@@ -5,23 +5,23 @@
     <arg name="no_recording" default="false"/>
     <arg name="p_id"/>
 
-    <include file="$(find deepgrasp_utils)/launch/ar_tag.launch">
+    <include file="$(find contactdb_utils)/launch/ar_tag.launch">
         <arg name="print" value="false"/>
         <arg name="rviz" value="false"/>
         <arg name="image_view" value="true"/>
         <arg name="kinect_res" value="$(arg kinect_res)"/>
     </include>
 
-    <node name="turntable_operator" pkg="deepgrasp_utils" cwd="node"
+    <node name="turntable_operator" pkg="contactdb_utils" cwd="node"
           type="operate_turntable.py" output="screen" required="true"
           args="
           --serial_port $(arg serial_port)
           --marker_id $(arg marker_id)
-          --data_dir $(env HOME)/deepgrasp_data/data3/rosbags/$(arg p_id)
+          --data_dir $(find contactdb_utils)/data/contactdb_data/rosbags/$(arg p_id)
           --kinect_res $(arg kinect_res)"/>
 
     <!--node name="rviz" pkg="rviz" type="rviz"
-          args="-d $(find deepgrasp_utils)/rviz_files/recording.rviz"
+          args="-d $(find contactdb_utils)/rviz_files/recording.rviz"
           output="screen"
           required="true"/-->
 

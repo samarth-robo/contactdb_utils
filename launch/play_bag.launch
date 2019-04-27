@@ -1,5 +1,5 @@
 <launch>
-    <arg name="data_dir" default="$(env HOME)/deepgrasp_data/data"/>
+    <arg name="data_dir" default="$(find contactdb_utils)/data/contactdb_data"/>
     <arg name="object_name"/>
     <arg name="p_id"/>
     <arg name="kinect_res" default="qhd"/>
@@ -11,11 +11,11 @@
 
     <!-- play bag file -->
     <param name="use_sim_time" value="true"/>
-    <node name="player" pkg="deepgrasp_utils" type="play_bag.sh" output="screen"
+    <node name="player" pkg="contactdb_utils" type="play_bag.sh" output="screen"
           required="true" args="$(arg data_dir) $(arg p_id) $(arg object_name)"/>
 
     <!-- correct calibration -->
-    <node name="thermal_cinfo_changer" pkg="deepgrasp_utils"
+    <node name="thermal_cinfo_changer" pkg="contactdb_utils"
           type="change_camera_info.py" args="$(arg old)" output="screen">
         <!-- input -->
         <remap from="cam_info_in" to="/deepgrasp/boson/camera_info_old"/>
@@ -24,10 +24,10 @@
     </node>
 
     <!-- Static TF from Kinect RGB to Thermal -->
-    <node name="tf_pub" pkg="deepgrasp_utils" type="tf_publisher.py"
+    <node name="tf_pub" pkg="contactdb_utils" type="tf_publisher.py"
           output="screen"/>
     <!-- extract the turntable frames from the bag's TF topic-->
-    <node pkg="deepgrasp_utils" type="tf_remapper.py" name="tf_remapper"
+    <node pkg="contactdb_utils" type="tf_remapper.py" name="tf_remapper"
           output="screen">
         <rosparam param="mappings">
             [{old: boson_frame, new: boson_frame_ignore}]
@@ -52,7 +52,7 @@
               'compressed in:=boson/image_raw_raw raw out:=boson/image_raw_raw')"/>
 
         <!-- AGC and rectify the thermal image -->
-        <include file="$(find deepgrasp_utils)/launch/thermal_proc.launch"
+        <include file="$(find contactdb_utils)/launch/thermal_proc.launch"
                  ns="boson">
             <arg name="old" value="$(arg old)"/>
             <arg name="const_norm" value="$(arg const_thermal_norm)"/>
@@ -92,7 +92,7 @@
         </node>
 
         <!-- register depth image to thermal image -->
-        <node name="register" pkg="deepgrasp_utils" type="register_depth"
+        <node name="register" pkg="contactdb_utils" type="register_depth"
               output="screen" if="$(eval arg('vis') or arg('registered'))">
             <!-- inputs -->
             <remap from="thermal_camera_info" to="boson/camera_info"/>
@@ -106,7 +106,7 @@
         </node>
 
         <!-- Filter point clouds from bag -->
-        <node name="filter" pkg="deepgrasp_utils" type="cloud_tf_sync"
+        <node name="filter" pkg="contactdb_utils" type="cloud_tf_sync"
               output="screen" required="true" unless="$(arg vis)"
               args="$(arg data_dir)/$(arg p_id) $(arg object_name)
                     $(arg re_extract)">
@@ -129,6 +129,6 @@
 
     <!-- RViz -->
     <node name="rviz" pkg="rviz" type="rviz" output="screen" required="true"
-          args="-d $(find deepgrasp_utils)/rviz_files/play_bag.rviz"
+          args="-d $(find contactdb_utils)/rviz_files/play_bag.rviz"
           if="$(arg vis)"/>
 </launch>

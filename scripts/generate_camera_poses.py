@@ -288,7 +288,7 @@ class PoseGenerator(object):
 if __name__ == '__main__':
   parser = argparse.ArgumentParser('Mesh scaling script')
   parser.add_argument('--data_dir', help='Root data directory',
-    default=osp.expanduser(osp.join('~', 'deepgrasp_data', 'data')))
+    default=osp.expanduser(osp.join('..', 'data', 'contactdb_data')))
   parser.add_argument('--session_name', help='ID of participant',
     required=True)
   parser.add_argument('--object_name', help='Name of object',

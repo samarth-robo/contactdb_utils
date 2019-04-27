@@ -1,5 +1,5 @@
 """
-Uses open3D colormap optimization to do texture mapping
+Generates the object mask by projecting the object model into each image
 """
 
 import numpy as np
@@ -18,7 +18,7 @@ import logging
 from IPython.core.debugger import set_trace
 osp = os.path
 
-default_models_dir = osp.join('~', 'deepgrasp_data', 'models')
+default_models_dir = osp.join('..', 'data', 'contactdb_3d_models')
 default_dilation = 15
 
 
@@ -83,7 +83,7 @@ def generate_object_masks(object_name, session_name, base_dir,
 
   # camera intrinsic
   cinfo_filename = cinfo_manager.getPackageFileName(
-    'package://deepgrasp_utils/calibrations/boson.yaml')
+    'package://contactdb_utils/calibrations/boson.yaml')
   cinfo = cinfo_manager.loadCalibrationFile(cinfo_filename, 'boson')
   h_scaling = float(im_shape[0]) / cinfo.height
   w_scaling = float(im_shape[1]) / cinfo.width
@@ -118,7 +118,7 @@ if __name__ == '__main__':
       help="comma separated list of objects")
   parser.add_argument('--session_name', required=True)
   parser.add_argument('--data_dir',
-    default=osp.join('~', 'deepgrasp_data', 'data'))
+    default=osp.join('..', 'data', 'contactdb_data'))
   parser.add_argument('--models_dir',
     default=default_models_dir)
   parser.add_argument('--dilate_size', type=int, default=default_dilation)

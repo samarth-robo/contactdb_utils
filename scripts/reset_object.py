@@ -70,7 +70,7 @@ if __name__ == '__main__':
   parser.add_argument('--object_name')
   parser.add_argument('--session_name', required=True)
   parser.add_argument('--data_dir',
-    default=osp.join('~', 'deepgrasp_data', 'data'))
+      default=osp.join('..', 'data', 'contactdb_data'))
   args = parser.parse_args()
 
   data_dir = osp.expanduser(args.data_dir)

@@ -1,5 +1,5 @@
 """
-script to copy the thermal images and cam files from all directories containing
+script to copy the thermal images and pose files from all directories containing
 rotated view to the main directory
 """
 import os
@@ -79,7 +79,7 @@ if __name__ == '__main__':
   parser.add_argument('--object_name', required=True)
   parser.add_argument('--session_name', required=True)
   parser.add_argument('--data_dir',
-    default=osp.join('~', 'deepgrasp_data', 'data'))
+    default=osp.join('..', 'data', 'contactdb_data'))
   args = parser.parse_args()
 
   copy_cams(args.object_name, args.session_name, args.data_dir)

@@ -4,7 +4,7 @@
   <arg name="kinect_res" default="qhd"/>
 
   <!-- Launch the cameras -->
-  <include file="$(find deepgrasp_utils)/launch/deepgrasp_cameras.launch">
+  <include file="$(find contactdb_utils)/launch/contactdb_cameras.launch">
     <arg name="view" value="false"/>
     <arg name="kinect_res" value="$(arg kinect_res)"/>
   </include>
@@ -12,7 +12,7 @@
   <group ns="deepgrasp">
 
     <!-- Static TFs -->
-    <include file="$(find deepgrasp_utils)/launch/static_tfs.launch"/>
+    <include file="$(find contactdb_utils)/launch/static_tfs.launch"/>
 
     <!-- register depth image to thermal image -->
     <node name="pointcloud_manager" pkg="nodelet" type="nodelet" args="manager"
@@ -47,7 +47,7 @@
     </node>
 
     <group if="$(arg grab)">
-      <node name="pcd_grabber" pkg="deepgrasp_utils" type="pcd_grabber"
+      <node name="pcd_grabber" pkg="contactdb_utils" type="pcd_grabber"
             args="$(env HOME) $(arg object)"
             output="screen" required="true">
         <!-- inputs -->
@@ -58,5 +58,5 @@
   </group>
 
   <node name="rviz" pkg="rviz" type="rviz" output="screen" required="true"
-        args="-d $(find deepgrasp_utils)/rviz_files/thermal_cloud.rviz"/>
+        args="-d $(find contactdb_utils)/rviz_files/thermal_cloud.rviz"/>
 </launch>

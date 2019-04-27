@@ -1,8 +1,8 @@
 <launch>
   <arg name="kinect_res" default="qhd"/>
-  <arg name="data_dir" default="$(env HOME)/Pictures/deepgrasp_calib"/>
+  <arg name="data_dir" default="$(env HOME)/Pictures/contactdb_calib"/>
 
-  <include file="$(find deepgrasp_utils)/launch/deepgrasp_cameras.launch">
+  <include file="$(find contactdb_utils)/launch/contactdb_cameras.launch">
     <arg name="view" value="true"/>
     <arg name="kinect_res" value="$(arg kinect_res)"/>
   </include>
@@ -23,6 +23,6 @@
     <param name="filename_format" value="$(arg data_dir)/%05d_thermal.jpg"/>
   </node>
 
-  <node name="service_caller" pkg="deepgrasp_utils"
+  <node name="service_caller" pkg="contactdb_utils"
         type="image_save_service_caller.py" output="screen" ns="deepgrasp"/>
 </launch>

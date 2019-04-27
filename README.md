@@ -21,7 +21,7 @@ We offer both processed and raw forms of the data.
 The repository includes some handy Python scripts in the `scripts` directory. You can ignore all the C++ code.
 1. Install [Open3D](http://www.open3d.org/docs/getting_started.html), `numpy`, and `matplotlib`.
 2. Download this repository: `git clone https://github.com/samarth-robo/contactdb_utils`.
-3. Download the data as mentioned in [Using Processed Data](#processed-data), and make the symlink: `ln -s DOWNLOAD-DIR data/contactdb_data`.
+3. Download the [Processed Data](#processed-data), and make the symlink: `ln -s DOWNLOAD-DIR data/contactdb_data`.
 4. If you want to perform machine learning experiments, check out the [contactdb_prediction](https://github.com/samarth-robo/contactdb_prediction) repository.
 ### Using Raw Data
 Our code is a ROS package that has been tested on Ubuntu 16.04 LTS with ROS Kinetic Kame.
@@ -29,13 +29,24 @@ Our code is a ROS package that has been tested on Ubuntu 16.04 LTS with ROS Kine
 2. Set up a [Catkin workspace](http://wiki.ros.org/catkin/Tutorials/create_a_workspace) in `~/catkin_ws`.
 3. Download this repository and compile the ROS package:
 ```
-cd ~/catkin_ws/src
-git clone https://github.com/samarth-robo/contactdb_utils
-cd ..
-catkin_make
+$ cd ~/catkin_ws/src
+$ git clone https://github.com/samarth-robo/contactdb_utils
+$ cd ..
+$ catkin_make
 ```
-4. Download the data and 3D models as mentioned in [Using Raw Data](#raw-data), and make symlinks:
+4. Download [Raw Data and 3D Models](#raw-data), and make symlinks:
 `ln -s DATA-DOWNLOAD-DIR data/contactdb_data`, `ln -s 3D-MODEL-DOWNLOAD-DIR data/contactdb_3d_models`.
+5. Download and setup the ICP code for object pose estimation:
+```
+$ git clone https://github.com/samarth-robo/ICP-gui
+$ cd ICP-gui
+$ mkdir build && cd build && make -j
+```
+6. Create a symlink to the build directory:
+```
+$ cd contactdb_utils
+$ ln -s <ICP-gui dir>/build ICP_build
+```
 
 ## Visualizing Contact Maps
 This script applies our post-processing to the contact map, and shows it in interactive 3D. You need to either download the processed data, or process the raw data before running it.

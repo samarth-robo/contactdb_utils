@@ -23,7 +23,7 @@ class RegisterRGB(object):
 
     # RGB camera info
     cinfo_filename = cinfo_manager.getPackageFileName(
-      'package://deepgrasp_utils/calibrations/kinect.yaml')
+      'package://contactdb_utils/calibrations/kinect.yaml')
     kinect_cinfo = cinfo_manager.loadCalibrationFile(cinfo_filename, 'kinect')
     self.rgb_im_size = (kinect_cinfo.width, kinect_cinfo.height)
     self.rgb_K = np.reshape(kinect_cinfo.K, (3, 3))

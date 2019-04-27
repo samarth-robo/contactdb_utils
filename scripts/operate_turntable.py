@@ -242,7 +242,7 @@ if __name__ == '__main__':
   parser.add_argument('--marker_id', type=int, default=0,
                       help='ID of the marker')
   parser.add_argument('--data_dir', type=str,
-                      default=osp.expanduser('~/deepgrasp_data'))
+                      default=osp.join('..', 'data', 'contactdb_data'))
   parser.add_argument('--kinect_res', type=str, default='qhd')
 
   rospy.init_node('turntable_operator')

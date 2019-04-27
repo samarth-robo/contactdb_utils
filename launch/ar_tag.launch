@@ -8,7 +8,7 @@
   <arg name="thermal_const_norm" default="true"/>
 
   <!-- Launch the cameras -->
-  <include file="$(find deepgrasp_utils)/launch/deepgrasp_cameras.launch">
+  <include file="$(find contactdb_utils)/launch/contactdb_cameras.launch">
     <arg name="view" value="$(arg image_view)"/>
     <arg name="kinect_res" value="$(arg kinect_res)"/>
     <arg name="kinect" value="$(arg kinect)"/>
@@ -27,7 +27,7 @@
   </include>
 
   <!-- Static TFs -->
-  <include file="$(find deepgrasp_utils)/launch/static_tfs.launch"/>
+  <include file="$(find contactdb_utils)/launch/static_tfs.launch"/>
 
   <!-- print TF -->
   <node name="tf_print" pkg="tf" type="tf_echo" if="$(arg print)"
@@ -35,6 +35,6 @@
         output="screen"/>
 
   <node name="rviz" pkg="rviz" type="rviz" if="$(arg rviz)"
-        args="-d $(find deepgrasp_utils)/rviz_files/ar.rviz" output="screen"
+        args="-d $(find contactdb_utils)/rviz_files/ar.rviz" output="screen"
         required="true"/>
 </launch>

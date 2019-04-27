@@ -6,7 +6,7 @@
     <arg name="output" value="log"/>
     <arg name="publish_tf" value="true"/>
     <arg name="max_depth" value="1.50"/>
-    <arg name="calib_path" value="$(find deepgrasp_utils)/calibrations"/>
+    <arg name="calib_path" value="$(find contactdb_utils)/calibrations"/>
   </include>
 
   <group if="$(arg view)">

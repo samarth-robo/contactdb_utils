@@ -3,7 +3,7 @@
     <arg name="kinect_res" default="qhd"/>
 
     <!-- Start Kinect -->
-    <include file="$(find deepgrasp_utils)/launch/kinect.launch">
+    <include file="$(find contactdb_utils)/launch/kinect.launch">
         <arg name="view" value="$(arg view)"/>
         <arg name="kinect_res" value="$(arg kinect_res)"/>
     </include>
@@ -11,7 +11,7 @@
     <node name="kinect2_viewer" pkg="kinect2_viewer" type="kinect2_viewer"
           args="qhd cloud" output="screen" required="true"/>
 
-    <node name="pcd_grabber" pkg="deepgrasp_utils" type="pcd_grabber"
+    <node name="pcd_grabber" pkg="contactdb_utils" type="pcd_grabber"
           output="screen" required="true" args="$(env HOME) test">
       <remap from="points" to="/kinect2/$(arg kinect_res)/points"/>
       <remap from="image" to="/kinect2/$(arg kinect_res)/image_color_rect"/>

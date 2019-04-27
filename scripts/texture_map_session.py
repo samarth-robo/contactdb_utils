@@ -1,5 +1,5 @@
 """
-script to redo the texture mapping for a session
+script to redo the texture mapping for an entire session
 """
 import sys
 import os
@@ -8,7 +8,7 @@ from texture_mapping import map_texture
 from Logger import Logger
 osp = os.path
 
-ignore_objects = ['usb_drive', 'wrench', 'palm_print']
+ignore_objects = ['usb_drive', 'wrench']
 
 # useful for re-processing some particular objects
 # include_objects = ['pyramid_small', 'pyramid_medium', 'pyramid_large']
@@ -34,10 +34,10 @@ def process_session(session_name, data_dir, models_dir):
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()
   parser.add_argument('--data_dir', help='Data Directory',
-    default=osp.join('~', 'deepgrasp_data', 'data'))
+    default=osp.join('..', 'data', 'contactdb_data'))
   parser.add_argument('--session_name', required=True)
   parser.add_argument('--models_dir', help='Models Directory',
-    default=osp.join('~', 'deepgrasp_data', 'models'))
+    default=osp.join('..', 'data', 'contactdb_3d_models'))
   args = parser.parse_args()
 
   log_filename = osp.join(args.data_dir, args.session_name,

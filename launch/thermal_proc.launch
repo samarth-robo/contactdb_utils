@@ -6,7 +6,7 @@
       <arg name="old" default="false"/>
       <arg name="const_norm" default="false"/>
 
-      <node name="thermal_proc" pkg="deepgrasp_utils" type="thermal_camera_proc"
+      <node name="thermal_proc" pkg="contactdb_utils" type="thermal_camera_proc"
             output="screen" required="true" unless="$(arg old)" args="
             agc_border $(arg agc_border)
             cold_temp $(arg cold_temp)

@@ -2,17 +2,9 @@ import logging
 import os
 osp = os.path
 
-base_dir = osp.expanduser(osp.join('~', 'deepgrasp_data'))
-use_data_dirs = \
-    [osp.join(base_dir, 'data')]*28 + \
-    [osp.join(base_dir, 'data3')] + \
-    [osp.join(base_dir, 'data2')]*4 + \
-    [osp.join(base_dir, 'data3')]*18
-handoff_data_dirs = \
-    [osp.join(base_dir, 'data')]*24 + \
-    [osp.join(base_dir, 'data3')]*5 +\
-    [osp.join(base_dir, 'data2')]*4 + \
-    [osp.join(base_dir, 'data3')]*17
+N_sessions = 50
+use_data_dirs     = ['../data/contactdb_data/'] * N_sessions
+handoff_data_dirs = ['../data/contactdb_data/'] * N_sessions
 
 
 def get_session_mesh_filenames(session_name, data_dir):
@@ -57,5 +49,3 @@ def get_session_mesh_filenames(session_name, data_dir):
         '{:s}_textured.ply'.format(oname))
     mesh_filenames[oname] = mesh_filename
   return mesh_filenames
-
-

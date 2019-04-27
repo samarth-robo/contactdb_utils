@@ -56,9 +56,8 @@ flat_object_disc_thresh = 0.07
 ignore_objects = ['usb_drive', 'wrench']
 special_rotations = {'light_bulb': [4, -14], 'toothpaste': [4, -4]}
 
-default_models_dir = osp.expanduser(osp.join('~', 'deepgrasp_data', 'models'))
-default_icp_exec = osp.expanduser(osp.join('~', 'research', 'ICP-gui',
-  'build', 'grasp_processor'))
+default_models_dir = osp.expanduser(osp.join('..', 'data', 'contactdb_3d_models'))
+default_icp_exec = osp.expanduser(osp.join('..', 'ICP_build', 'grasp_processor'))
 
 def process_session(session_name, data_dir, models_dir=default_models_dir,
     icp_executable=default_icp_exec, include_objects=None):

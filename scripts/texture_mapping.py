@@ -84,7 +84,7 @@ def map_texture(object_name, session_name, base_dir, models_dir,
 
   # camera intrinsic
   cinfo_filename = cinfo_manager.getPackageFileName(
-    'package://deepgrasp_utils/calibrations/boson.yaml')
+    'package://contactdb_utils/calibrations/boson.yaml')
   cinfo = cinfo_manager.loadCalibrationFile(cinfo_filename, 'boson')
   h_scaling = float(im_shape[0]) / cinfo.height
   w_scaling = float(im_shape[1]) / cinfo.width
@@ -171,7 +171,7 @@ if __name__ == '__main__':
   parser.add_argument('--session_nums', default=None, help='comma or - separated')
   parser.add_argument('--instructions', default=None, help='comma separated')
   parser.add_argument('--models_dir',
-    default=osp.join('~', 'deepgrasp_data', 'models'))
+    default=osp.join('..', 'data', 'contactdb_3d_models'))
   parser.add_argument('--visibility_thresh', type=float, default=1e-2)
   parser.add_argument('--discontinuity_thresh', type=float, default=0.035)
   parser.add_argument('--vertex_normal_angle', type=float, default=70)

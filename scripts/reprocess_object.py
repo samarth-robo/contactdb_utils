@@ -1,6 +1,7 @@
 """
 Script for re-extracting contents of bag file, processing the object and then
 deleting the pointclouds
+Can work for multiple objects and sessions
 """
 import os
 import argparse
@@ -35,7 +36,7 @@ def process_object(object_names, session_nums, instruction,
           # play the bag file
           # determine if the session was recorded with the old system
           old = session_num <= 4
-          cmd = 'roslaunch deepgrasp_utils play_bag.launch data_dir:={:s} ' \
+          cmd = 'roslaunch contactdb_utils play_bag.launch data_dir:={:s} ' \
                 'object_name:={:s} p_id:={:s}'.format(data_dir, object_name,
                     session_name)
           if old:

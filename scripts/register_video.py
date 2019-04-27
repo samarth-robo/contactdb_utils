@@ -22,7 +22,7 @@ class RegisterVideo(object):
 
     # RGB camera info
     cinfo_filename = cinfo_manager.getPackageFileName(
-      'package://deepgrasp_utils/calibrations/kinect.yaml')
+      'package://contactdb_utils/calibrations/kinect.yaml')
     kinect_cinfo = cinfo_manager.loadCalibrationFile(cinfo_filename, 'kinect')
     self.rgb_im_size = (kinect_cinfo.width, kinect_cinfo.height)
     self.rgb_K = np.reshape(kinect_cinfo.K, (3, 3))
@@ -115,11 +115,10 @@ class RegisterVideo(object):
     return done
 
 
-
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()
   parser.add_argument('--data_dir',
-    default=osp.join('~', 'deepgrasp_data', 'data'))
+    default=osp.join('..', 'data', 'contactdb_data'))
   parser.add_argument('--session_name', required=True)
   parser.add_argument('--object_name', required=True)
   args = parser.parse_args()

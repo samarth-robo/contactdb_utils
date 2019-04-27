@@ -6,14 +6,14 @@
   <arg name="thermal_const_norm" default="false"/>
 
   <!-- Start Kinect -->
-  <include file="$(find deepgrasp_utils)/launch/kinect.launch" ns="deepgrasp"
+  <include file="$(find contactdb_utils)/launch/kinect.launch" ns="deepgrasp"
            if="$(arg kinect)">
     <arg name="view" value="$(arg view)"/>
     <arg name="kinect_res" value="$(arg kinect_res)"/>
   </include>
 
   <!-- Start thermal camera -->
-  <include file="$(find deepgrasp_utils)/launch/thermal.launch" ns="deepgrasp"
+  <include file="$(find contactdb_utils)/launch/thermal.launch" ns="deepgrasp"
            if="$(arg thermal)">
     <arg name="view" value="$(arg view)"/>
     <arg name="const_norm" value="$(arg thermal_const_norm)"/>

@@ -1,5 +1,6 @@
 """
-This script remeshes all STL files and saves them as PLY
+This script remeshes all STL files and saves them as PLY,
+provided as an example
 """
 import os
 from subprocess import Popen
@@ -25,5 +26,5 @@ def remesh(data_dir):
 
 
 if __name__ == '__main__':
-  data_dir = osp.join('~', 'deepgrasp_data_devel', 'models')
+  data_dir = osp.join('..', 'data', 'contactdb_3d_models')
   remesh(data_dir)

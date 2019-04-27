@@ -1,3 +1,7 @@
+'''
+Resets all the poses estmated by ICP
+'''
+
 import argparse
 import os
 import numpy as np
@@ -36,12 +40,11 @@ if __name__ == '__main__':
   parser = argparse.ArgumentParser()
   parser.add_argument('--object_name', required=True)
   parser.add_argument('--session_name', required=True)
-  parser.add_argument('--data_dir',
-    default=osp.join('~', 'deepgrasp_data', 'data'))
-  parser.add_argument('--pose', default=None)
+  parser.add_argument('--data_dir', default=osp.join('..', 'data', 'contactdb_data'))
+  parser.add_argument('--view', default=None)
   args = parser.parse_args()
 
   base_dir = osp.join(args.data_dir, args.session_name, args.object_name)
   base_dir = osp.expanduser(base_dir)
 
-  reset_poses(base_dir, pose=args.pose, verbose=True)
+  reset_poses(base_dir, pose=args.view, verbose=True)

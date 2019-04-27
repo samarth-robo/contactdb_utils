@@ -12,7 +12,7 @@ class CamInfoChanger(object):
       rospy.loginfo('CamInfoChanger is set to old format (960x540 image)')
 
     self.manager = CameraInfoManager(cname='boson',
-      url='package://deepgrasp_utils/calibrations/boson.yaml')
+      url='package://contactdb_utils/calibrations/boson.yaml')
     try:
       self.manager.loadCameraInfo()
     except IOError as e:

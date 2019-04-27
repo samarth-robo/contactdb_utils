@@ -1,8 +1,0 @@
-<launch>
-    <arg name="kinect_res" default="qhd"/>
-    <node name="process_hand_pose" type="hand_pose_processor" output="screen"
-          pkg="deepgrasp_utils" ns="deepgrasp" required="true">
-        <remap from="depth_image" to="kinect2/$(arg kinect_res)/image_depth_rect"/>
-        <remap from="camera_info" to="kinect2/$(arg kinect_res)/camera_info"/>
-    </node>
-</launch>

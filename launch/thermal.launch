@@ -12,13 +12,13 @@
     <!-- params -->
     <param name="frame_id" value="$(arg camera_name)_frame"/>
     <param name="camera_name" value="$(arg camera_name)"/>
-    <param name="camera_info_url" value="package://deepgrasp_utils/calibrations/$(arg camera_name).yaml"/>
+    <param name="camera_info_url" value="package://contactdb_utils/calibrations/$(arg camera_name).yaml"/>
     <param name="cv_cap_prop_fourcc" value="540422489"/>
     <param name="cv_cap_prop_convert_rgb" value="0"/>
     <param name="cv_cap_prop_fps" value="60"/>
   </node>
 
-  <include file="$(find deepgrasp_utils)/launch/thermal_proc.launch"
+  <include file="$(find contactdb_utils)/launch/thermal_proc.launch"
            ns="$(arg camera_name)">
     <arg name="const_norm" value="$(arg const_norm)"/>
   </include>

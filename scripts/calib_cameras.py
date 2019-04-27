@@ -73,7 +73,7 @@ class Calibrator:
 
     # initialization Kinect from YAML file
     self.kcam.init_from_yaml(osp.expanduser(
-      '~/catkin_ws/src/deepgrasp_utils/calibrations/kinect.yaml'))
+      '~/catkin_ws/src/contactdb_utils/calibrations/kinect.yaml'))
     self.kcam.print_info()
 
   def show_points(self, im, points, window_name):

@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
 import roslib
-roslib.load_manifest('deepgrasp_utils')
+package_name = 'contactdb_utils'
+roslib.load_manifest(package_name)
 import rospy
 import tf2_ros
 from tf_conversions import transformations as tx
@@ -17,7 +18,7 @@ if __name__ == '__main__':
   rospack = rospkg.RosPack()
 
   # read the TF info for cameras
-  with open(osp.join(rospack.get_path('deepgrasp_utils'),
+  with open(osp.join(rospack.get_path(package_name),
     'calibrations/stereo.pkl'), 'r') as f:
     extrinsics = pickle.load(f)
 
