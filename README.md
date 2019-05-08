@@ -59,7 +59,7 @@ python show_contactmap.py --object_name <object name> --session <participant num
 ## Documents:
 - [Recording your own data](docs/recording_steps.md)
 - [Cleaning up 3D models of objects](docs/3d_model_cleaning.md)
-- [Proessing the recorded data](docs/processing_steps.md)
+- [Processing the recorded data](docs/processing_steps.md)
 - [Various files produced during data processing](docs/data_files.md)
 
 ## Citation
