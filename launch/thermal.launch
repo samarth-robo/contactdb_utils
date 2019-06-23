@@ -13,6 +13,8 @@
     <param name="frame_id" value="$(arg camera_name)_frame"/>
     <param name="camera_name" value="$(arg camera_name)"/>
     <param name="camera_info_url" value="package://contactdb_utils/calibrations/$(arg camera_name).yaml"/>
+    <!-- FLIR Boson has a Y16 format which outputs raw 16 bit pixel values -->
+    <!-- Generated using cv2.VideoWriter_fourcc('Y', '1', '6', ' ') -->
     <param name="cv_cap_prop_fourcc" value="540422489"/>
     <param name="cv_cap_prop_convert_rgb" value="0"/>
     <param name="cv_cap_prop_fps" value="60"/>
