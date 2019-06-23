@@ -32,10 +32,11 @@ The repository includes some handy Python scripts in the `scripts` directory. Yo
 Our code is a ROS package that has been tested on Ubuntu 16.04 LTS with ROS Kinetic Kame.
 1. [Install dependencies](docs/deps.md)
 2. Set up a [Catkin workspace](http://wiki.ros.org/catkin/Tutorials/create_a_workspace) in `~/catkin_ws`.
-3. Download this repository and compile the ROS package:
+3. Download this repository and [my fork of cv_camera](https://github.com/samarth-robo/cv_camera) and compile the ROS package:
 ```
 $ cd ~/catkin_ws/src
 $ git clone https://github.com/samarth-robo/contactdb_utils
+$ git clone https://github.com/samarth-robo/cv_camera
 $ cd ..
 $ catkin_make
 ```
