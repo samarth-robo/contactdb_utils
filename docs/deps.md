@@ -11,6 +11,7 @@ Check that `#include <pcl/registration/boost.h>` is included in PCL's header fil
 ## Installing Horus (only needed if you want to record your own data)
 We use the [Ciclop 3D scanner from CowTech](https://www.cowtechengineering.com/3d-scanners) for recording data, which is operated by the [Horus](https://horus.readthedocs.io/) software.
 1. Remove system OpenCV: `sudo apt-get remove libopencv-dev && sudo apt-get autoremove`. This does not remove ROS OpenCV.
+
 2. Install dependencies:
 ```
 sudo apt-get install python-serial python-opengl python-pyglet python-numpy python-scipy python-matplotlib
@@ -18,7 +19,11 @@ sudo apt-get install python-wxgtk3.0
 sudo apt-get install avrdude v4l-utils
 ```
 Taken from [here](https://github.com/LibreScanner/horus/blob/develop/doc/development/ubuntu.md).
+
 3. `sudo add-apt-repository ppa:bqlabs/horus-dev && sudo apt-get update`
+
 4. `sudo apt-get install python-opencv` - this installs a modified version of OpenCV from the `horus-dev` PPA for use with Horus. It will not interfere with ROS OpenCV 
+
 6. `sudo apt-get install horus`
+
 7. Permissions: `sudo usermod -a -G dialout $USER` and reboot.
