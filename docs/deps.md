@@ -9,7 +9,7 @@
 Check that `#include <pcl/registration/boost.h>` is included in PCL's header file `ROOT/registration/warp_point_rigid.h`.
 
 ## Installing Horus (only needed if you want to record your own data)
-We use the [Ciclop 3D scanner from CowTech](https://www.cowtechengineering.com/3d-scanners) for recording data, which is operated by the [Horus](https://horus.readthedocs.io/) software.
+We use the [Ciclop 3D scanner from CowTech](https://www.cowtechengineering.com/3d-scanners) as a turntable for recording data, which is operated by the [Horus](https://horus.readthedocs.io/) software.
 1. Remove system OpenCV: `sudo apt-get remove libopencv-dev && sudo apt-get autoremove`. This does not remove ROS OpenCV.
 
 2. Install dependencies:
@@ -26,4 +26,15 @@ Taken from [here](https://github.com/LibreScanner/horus/blob/develop/doc/develop
 
 6. `sudo apt-get install horus`
 
-7. Permissions: `sudo usermod -a -G dialout $USER` and reboot.
+7. Permissions (log out and log in afterwards):
+```
+sudo usermod -a -G dialout $USER
+sudo usermod -a -G tty $USER
+```
+
+## Setting up the turntable
+Following the [instructions](http://media.wix.com/ugd/ed8e91_d1173069b4cc4e569961f77c45803b0c.pdf), you will need to open up Horus and upload firmware to the Arduino on the first time. Once this is done, the code in this repository can directly connect to the turntable and control it.
+
+Here are the things I had to do to get it to work:
+- Use Windows for the first firmware uploading step
+- Even though the instructions mention setting the baud rate to 115200, I found that that did not work on the first try. Instead, I had to select 9600, upload firmware, select the next higher baud rate, upload the firmware, and so on and re-upload at 115200. Now, the firmware will successfully upload and work.
