@@ -20,7 +20,8 @@ We offer both processed and raw forms of the data.
 links to 3D models suitable for printing, along with scaling information. We designed a mount for rigidly attaching the FLIR
 Boson camera to aa Kinect v2, you can find it
 [here](https://drive.google.com/file/d/1b-jSd6bSO9J4HP4xitSNaxbpIfzsovN8/view?usp=sharing).
-Note: these models are suitable for 3D printing, but some characteristics like sharp triangles make them unsuitable for texture mapping. Please use the re-meshed `.ply` models from the Processed Data section above for texture mapping. All the object poses, camera poses etc. are defined with respect to those re-meshed models.
+
+*Note*: these models are suitable for 3D printing, but some characteristics like sharp triangles make them unsuitable for texture mapping. Please use the re-meshed `.ply` models from the Processed Data section above for texture mapping. All the object poses, camera poses etc. are defined with respect to those re-meshed models.
 
 ## Setup
 ### Using Processed Data
