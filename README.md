@@ -24,6 +24,8 @@ We designed a mount for rigidly attaching the FLIR Boson camera to the Kinect v2
 
 *Note*: these models are suitable for 3D printing, but some characteristics like sharp triangles make them unsuitable for texture mapping. Please use the re-meshed `.ply` models from the Processed Data section above for texture mapping. All the object poses, camera poses etc. are defined with respect to those re-meshed models.
 
+[This article](http://www.kraftwurx.com/3d-printing-community/18-3d-printing-design-a-product-advice/585-checking-models-for-3d-print-with-meshlab) is a good resource for getting files ready for 3D printing. Netfabb has a free student license.
+
 ## Setup
 ### Using Processed Data
 The repository includes some handy Python scripts in the `scripts` directory. You can ignore all the C++ code.
