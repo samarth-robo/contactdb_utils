@@ -6,7 +6,7 @@ Views are named `00`, `01`, and so on.
 
 - `rgb_images/xx.png` is the original RGB image from the Kinect (960 x 540), while `rgb_images/xx_registered.png` is registered to the thermal camera (640 x 512). The registered image might be blocky because of imperfections in the depth map hole filling algorithm and because of the change in viewpoint.
 
-- `depth_images/xx.png` is the raw depth image registered to the thermal camera, while `depth_images/xx_registered.png` is the post-processed version of this depth image, smoothed out and hole filled. Not the confusing naming pattern, both images are actually registered to the thermal camera. 
+- `depth_images/xx.png` is the raw depth image registered to the thermal camera, while `depth_images/xx_registered.png` is the post-processed version of this depth image, smoothed out and hole filled. Note the confusing naming pattern, both images are actually registered to the thermal camera (640 x 512). 
 
 - `poses`: Directory containing all the object/camera pose information.
 
