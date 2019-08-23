@@ -4,6 +4,10 @@ Explanation for various data files in each session directory e.g. `full10_use/ba
 - `depth_images`, `rgb_images`, `thermal_images`: Directories containing synchronized images from 3 modalities.
 Views are named `00`, `01`, and so on.
 
+- `rgb_images/xx.png` is the original RGB image from the Kinect (960 x 540), while `rgb_images/xx_registered.png` is registered to the thermal camera. The registered image might be blocky because of imperfections in the depth map hole filling algorithm and because of the change in viewpoint.
+
+- `depth_images/xx.png` is the raw depth image registered to the thermal camera, while `depth_images/xx_registered.png` is the post-processed version of this depth image, smoothed out and hole filled. Not the confusing naming pattern, both images are actually registered to the thermal camera. 
+
 - `poses`: Directory containing all the object/camera pose information.
 
 - `poses/tt_base.txt`: pose of the turntable base, from the bag file
