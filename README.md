@@ -13,6 +13,8 @@ This code is **in the process of being documented**. Feel free to open an issue 
 We offer both processed and raw forms of the data.
 ### Processed Data
 [Contact Maps (Textured Meshes) (11.5 GB)](https://www.dropbox.com/sh/gzwk21ssod63xdl/AAAJ5StPMS2eid2MnZddBGsca?dl=0). If you also need the RGBD-Thermal images, 6-DOF object poses, and image masks, use [this Dropbox link (91 GB)](https://www.dropbox.com/sh/yjp1s73ollrfafi/AAATWS-1l-MzUcNtahR36fB-a?dl=0) instead.
+We acknowledge the creators of the 3D models ([spreadsheet](https://docs.google.com/spreadsheets/d/1v1BqZJOKQ0chPYkBFVJvfToLU7KWs-2RRb2tsJ5IDP8/edit?usp=sharing)).
+The models were modified in terms of geometry and texture to create the contact maps. Contact maps are released for non-commercial use.
 ### Raw Data
 [ROS bagfiles (1.46 TB)](https://www.dropbox.com/sh/hn90i9qglddnfpb/AABfB3pd34nkEF7_usktvVLMa?dl=0): Compressed 30 Hz RGB-D-Thermal data streams. You will also need the [Object 3D Models (180 MB)](https://www.dropbox.com/sh/5rnxri7dzh9ciy3/AABXgwqpmBtlXgQc8aWBVl8aa?dl=0) to create contact maps from this raw data.
 ### 3D Printing
