@@ -18,7 +18,8 @@ The models were modified in terms of geometry and texture to create the contact 
 ### Raw Data
 [ROS bagfiles (1.46 TB)](https://www.dropbox.com/sh/hn90i9qglddnfpb/AABfB3pd34nkEF7_usktvVLMa?dl=0): Compressed 30 Hz RGB-D-Thermal data streams.
 ### 3D Printing
-[3D models and licensing information](https://www.google.com/url?q=https://www.dropbox.com/sh/3lb3tei3sgwnwst/AAANpnckqaYCpTHyAobgz0Dja?dl%3D0&sa=D&source=hangouts&ust=1595443294971000&usg=AFQjCNHrvz7EEB-l4k08CtmpZybdYlCSqw)
+[3D models and licensing information](https://www.dropbox.com/sh/3lb3tei3sgwnwst/AAANpnckqaYCpTHyAobgz0Dja?dl=0)
+
 [This spreadsheet](https://docs.google.com/spreadsheets/d/1v1BqZJOKQ0chPYkBFVJvfToLU7KWs-2RRb2tsJ5IDP8/edit?usp=sharing) has
 links to original 3D models, along with scaling information. We printed the objects at 15% hexagonal honeycomb infill with [PLA material](https://www.amazon.com/gp/product/B00NA00J1W/). Contact Samarth Brahmbhatt at samarth.robo@gatech.edu if links in that spreadsheet are dead.
 
