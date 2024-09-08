@@ -1,3 +1,5 @@
+[8 Sept 2024] I am aware the data download links are broken. the fix for this is being tracked in [this issue](https://github.com/samarth-robo/contactdb_utils/issues/3).
+
 # [ContactDB: Analyzing and Predicting Grasp Contact via Thermal Imaging](https://contactdb.cc.gatech.edu)
 This repository contains code to create the human grasp contact maps, presented in the paper 
 
